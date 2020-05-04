@@ -6,17 +6,27 @@
 const spawn = require('cross-spawn')
 const colors = require('colors/safe')
 
-let server, confName
+let server, confName, baseUrl
+
 if (process.argv && process.argv.length >= 3 && process.argv[2] === 'subfolder') {
   server = require('./e2eSubfolder.js')
   confName = 'protractor.subfolder.conf.js'
+} else if (process.argv && process.argv.length >= 3 && process.argv[2] === 'remote') {
+  server = require('./e2eRemote.js')
+  confName = 'protractor.remote.conf.js'
+  baseUrl = process.argv[3]
 } else {
   server = require('../server.js')
   confName = 'protractor.conf.js'
 }
 
 server.start(() => {
-  const protractor = spawn('protractor', [confName])
+  if (baseUrl) {
+    protractor = spawn('protractor', [confName, '--baseUrl', baseUrl, '--disableChecks'])
+  } else {
+    protractor = spawn('protractor', [confName])
+  }
+
   function logToConsole (data) {
     console.log(String(data))
   }

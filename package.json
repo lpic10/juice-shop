@@ -151,6 +151,7 @@
     "preprotractor": "npm dedupe && node ./node_modules/protractor/bin/webdriver-manager update --gecko false",
     "protractor": "npm run e2e",
     "e2e": "node test/e2eTests.js",
+    "solver": "node test/e2eTests.js remote",
     "vagrant": "cd vagrant && vagrant up",
     "package": "grunt package"
   },

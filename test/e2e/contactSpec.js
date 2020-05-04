@@ -12,6 +12,7 @@ describe('/#/contact', () => {
 
   beforeEach(() => {
     browser.get(protractor.basePath + '/#/contact')
+    browser.driver.executeScript(disableCSSAnimation)
     comment = element(by.id('comment'))
     rating = $$('.br-unit').last()
     captcha = element(by.id('captchaControl'))
@@ -180,13 +181,14 @@ describe('/#/contact', () => {
     it('should be possible to post 10 or more customer feedbacks in less than 10 seconds', () => {
       browser.ignoreSynchronization = true
 
-      for (var i = 0; i < 11; i++) {
+      // increase number of attempts, so tests don't fail
+      for (var i = 0; i < 21; i++) {
         comment.sendKeys('Spam #' + i)
         rating.click()
         submitButton.click()
-        browser.wait(EC.visibilityOf(snackBar), 100, 'SnackBar did not become visible')
+        captcha.clear()
+        browser.wait(EC.presenceOf(snackBar), 200, 'SnackBar did not become visible on #'+ i )
         snackBar.click()
-        browser.sleep(100)
         solveNextCaptcha() // first CAPTCHA was already solved in beforeEach
       }
 
@@ -222,5 +224,20 @@ describe('/#/contact', () => {
       const answer = eval(text).toString() // eslint-disable-line no-eval
       captcha.sendKeys(answer)
     })
+  }
+
+  function disableCSSAnimation() {
+    var css = '* {' +
+      '-webkit-transition-duration: 0s !important;' +
+      'transition-duration: 0s !important;' +
+      '-webkit-animation-duration: 0s !important;' +
+      'animation-duration: 0s !important;' +
+      '}',
+      head = document.head || document.getElementsByTagName('head')[0],
+      style = document.createElement('style');
+
+    style.type = 'text/css';
+    style.appendChild(document.createTextNode(css));
+    head.appendChild(style);
   }
 })
