@@ -21,5 +21,5 @@ exports.config.capabilities = {
 
 exports.config.capabilities.chromeOptions = {
         args: ['--ignore-certificate-errors ', '--start-maximized']
-        // args: ['--headless','--disable-gpu','--window-size=1980,1200']
+        // args: ['--headless','--disable-gpu','--window-size=1980,1200', '--ignore-certificate-errors ']
   }
