@@ -6,6 +6,8 @@
 const app = require('express')()
 const server = require('http').Server(app)
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED='0'
+
 exports.start = async function (readyCallback) {
   if (readyCallback) {
     readyCallback()

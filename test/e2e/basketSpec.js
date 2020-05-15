@@ -15,7 +15,7 @@ describe('/#/basket', () => {
       it('should be possible to update a basket to a negative quantity via the Rest API', () => {
         browser.waitForAngularEnabled(false)
         browser.executeScript('var xhttp = new XMLHttpRequest(); xhttp.onreadystatechange = function() { if (this.status == 200) { console.log("Success"); }}; xhttp.open("PUT","'+browser.baseUrl+'/api/BasketItems/1", true); xhttp.setRequestHeader("Content-type","application/json"); xhttp.setRequestHeader("Authorization",`Bearer ${localStorage.getItem("token")}`); xhttp.send(JSON.stringify({"quantity": -100000}));') // eslint-disable-line
-        browser.driver.sleep(1000)
+        browser.driver.sleep(2000)
         browser.waitForAngularEnabled(true)
 
         browser.get(protractor.basePath + '/#/order-summary')
@@ -73,21 +73,21 @@ describe('/#/basket', () => {
       it('should be possible to enter WMNSDY2019 coupon', () => {
         browser.waitForAngularEnabled(false)
         browser.executeScript('window.localStorage.couponPanelExpanded = false;')
-        browser.driver.sleep(1000)
+        browser.driver.sleep(2000)
         browser.waitForAngularEnabled(true)
 
         browser.get(protractor.basePath + '/#/payment/shop')
 
         browser.waitForAngularEnabled(false)
         browser.executeScript('event = new Date("March 08, 2019 00:00:00"); Date = function(Date){return function() {date = event; return date; }}(Date);')
-        browser.driver.sleep(1000)
+        browser.driver.sleep(2000)
         browser.waitForAngularEnabled(true)
 
         element(by.id('collapseCouponElement')).click()
         browser.wait(protractor.ExpectedConditions.presenceOf($('#coupon')), 5000, 'Coupon textfield not present.') // eslint-disable-line no-undef
 
         element(by.id('coupon')).sendKeys('WMNSDY2019')
-        browser.driver.sleep(1000)
+        browser.driver.sleep(2000)
         element(by.id('applyCouponButton')).click()
       })
 
