@@ -9,7 +9,7 @@ describe('/ftp', () => {
       browser.driver.get(browser.baseUrl + '/ftp/acquisitions.md')
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Confidential Document' })
+    protractor.expect.challengeSolved({ challenge: 'Confidential Document', category: 'Sensitive Data Exposure', wafshouldblock: "No" })
   })
 
   describe('challenge "errorHandling"', () => {
@@ -21,7 +21,7 @@ describe('/ftp', () => {
       })
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Error Handling' })
+    protractor.expect.challengeSolved({ challenge: 'Error Handling', category: 'Security Misconfiguration', wafshouldblock: "No" })
   })
 
   describe('challenge "forgottenBackup"', () => {
@@ -29,7 +29,7 @@ describe('/ftp', () => {
       browser.driver.get(browser.baseUrl + '/ftp/coupons_2013.md.bak%2500.md')
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Forgotten Sales Backup' })
+    protractor.expect.challengeSolved({ challenge: 'Forgotten Sales Backup', category: 'Sensitive Data Exposure', wafshouldblock: "No" })
   })
 
   describe('challenge "forgottenDevBackup"', () => {
@@ -37,7 +37,7 @@ describe('/ftp', () => {
       browser.driver.get(browser.baseUrl + '/ftp/package.json.bak%2500.md')
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Forgotten Developer Backup' })
+    protractor.expect.challengeSolved({ challenge: 'Forgotten Developer Backup', category: 'Sensitive Data Exposure', wafshouldblock: "No" })
   })
 
   describe('challenge "easterEgg1"', () => {
@@ -45,7 +45,7 @@ describe('/ftp', () => {
       browser.driver.get(browser.baseUrl + '/ftp/eastere.gg%2500.md')
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Easter Egg' })
+    protractor.expect.challengeSolved({ challenge: 'Easter Egg', category: 'Broken Access Control', wafshouldblock: "No" })
   })
 
   describe('challenge "misplacedSiemFileChallenge"', () => {
@@ -53,6 +53,6 @@ describe('/ftp', () => {
       browser.driver.get(browser.baseUrl + '/ftp/suspicious_errors.yml%2500.md')
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Misplaced Signature File' })
+    protractor.expect.challengeSolved({ challenge: 'Misplaced Signature File', category: 'Sensitive Data Exposure', wafshouldblock: "No" })
   })
 })

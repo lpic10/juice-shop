@@ -44,6 +44,6 @@ describe('/#/privacy-security/change-password', () => {
       expect(browser.getCurrentUrl()).toMatch(/\/search/)
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Change Bender\'s Password' })
+    protractor.expect.challengeSolved({ challenge: 'Change Bender\'s Password', category: 'Broken Authentication', wafshouldblock: "Yes" })
   })
 })

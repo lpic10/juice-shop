@@ -19,7 +19,7 @@ describe('/redirect', () => {
       })
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Whitelist Bypass' })
+    protractor.expect.challengeSolved({ challenge: 'Whitelist Bypass', category: 'Unvalidated Redirects', wafshouldblock: "Yes" })
   })
 
   describe('challenge "redirectCryptoCurrency"', () => {
@@ -27,6 +27,6 @@ describe('/redirect', () => {
       browser.driver.get(browser.baseUrl + '/redirect?to=https://etherscan.io/address/0x0f933ab9fcaaa782d0279c300d73750e1311eae6')
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Outdated Whitelist' })
+    protractor.expect.challengeSolved({ challenge: 'Outdated Whitelist', category: 'Unvalidated Redirects', wafshouldblock: "Yes" })
   })
 })

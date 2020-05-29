@@ -30,7 +30,7 @@ describe('/#/login', () => {
       loginButton.click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Login Admin' })
+    protractor.expect.challengeSolved({ challenge: 'Login Admin', category: 'Injection', wafshouldblock: "Yes" })
   })
 
   describe('challenge "loginJim"', () => {
@@ -40,7 +40,7 @@ describe('/#/login', () => {
       loginButton.click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Login Jim' })
+    protractor.expect.challengeSolved({ challenge: 'Login Jim', category: 'Injection', wafshouldblock: "Yes" })
   })
 
   describe('challenge "loginBender"', () => {
@@ -50,7 +50,7 @@ describe('/#/login', () => {
       loginButton.click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Login Bender' })
+    protractor.expect.challengeSolved({ challenge: 'Login Bender', category: 'Injection', wafshouldblock: "Yes" })
   })
 
   describe('challenge "adminCredentials"', () => {
@@ -60,7 +60,7 @@ describe('/#/login', () => {
       loginButton.click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Password Strength' })
+    protractor.expect.challengeSolved({ challenge: 'Password Strength', category: 'Broken Authentication', wafshouldblock: "No" })
   })
 
   describe('challenge "loginSupport"', () => {
@@ -70,7 +70,7 @@ describe('/#/login', () => {
       loginButton.click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Login Support Team' })
+    protractor.expect.challengeSolved({ challenge: 'Login Support Team', category: 'Security Misconfiguration', wafshouldblock: "No" })
   })
 
   describe('challenge "loginRapper"', () => {
@@ -80,7 +80,7 @@ describe('/#/login', () => {
       loginButton.click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Login MC SafeSearch' })
+    protractor.expect.challengeSolved({ challenge: 'Login MC SafeSearch', category: 'Sensitive Data Exposure', wafshouldblock: "No" })
   })
 
   describe('challenge "loginAmy"', () => {
@@ -90,7 +90,7 @@ describe('/#/login', () => {
       loginButton.click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Login Amy' })
+    protractor.expect.challengeSolved({ challenge: 'Login Amy', category: 'Sensitive Data Exposure', wafshouldblock: "No" })
   })
 
   describe('challenge "dlpPasswordSpraying"', () => {
@@ -100,7 +100,7 @@ describe('/#/login', () => {
       loginButton.click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Leaked Access Logs' })
+    protractor.expect.challengeSolved({ challenge: 'Leaked Access Logs', category: 'Sensitive Data Exposure', wafshouldblock: "No" })
   })
 
   describe('challenge "twoFactorAuthUnsafeSecretStorage"', () => {
@@ -126,7 +126,7 @@ describe('/#/login', () => {
       twoFactorSubmitButton.click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Two Factor Authentication' })
+    protractor.expect.challengeSolved({ challenge: 'Two Factor Authentication', category: 'Broken Authentication', wafshouldblock: "No" })
   })
 
   describe('challenge "oauthUserPassword"', () => {
@@ -136,7 +136,7 @@ describe('/#/login', () => {
       loginButton.click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Login Bjoern' })
+    protractor.expect.challengeSolved({ challenge: 'Login Bjoern', category: 'Broken Authentication', wafshouldblock: "No" })
   })
 
   describe('challenge "loginCiso"', () => {
@@ -166,7 +166,7 @@ describe('/#/login', () => {
       loginButton.click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Login CISO' })
+    protractor.expect.challengeSolved({ challenge: 'Login CISO', category: 'Broken Authentication', wafshouldblock: "Yes" })
   })
 
   describe('challenge "ghostLogin"', () => {
@@ -182,7 +182,7 @@ describe('/#/login', () => {
       loginButton.click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'GDPR Data Erasure' })
+    protractor.expect.challengeSolved({ challenge: 'GDPR Data Erasure', category: 'Broken Authentication', wafshouldblock: "Yes" })
   })
 
   describe('challenge "ephemeralAccountant"', () => {
@@ -192,6 +192,6 @@ describe('/#/login', () => {
       loginButton.click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Ephemeral Accountant' })
+    protractor.expect.challengeSolved({ challenge: 'Ephemeral Accountant', category: 'Injection', wafshouldblock: "Yes" })
   })
 })

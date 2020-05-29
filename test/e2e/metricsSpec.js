@@ -11,6 +11,6 @@ describe('/metrics/', () => {
       browser.waitForAngularEnabled(true)
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Exposed Metrics' })
+    protractor.expect.challengeSolved({ challenge: 'Exposed Metrics', category: 'Sensitive Data Exposure', wafshouldblock: "No" })
   })
 })

@@ -26,6 +26,6 @@ describe('/#/privacy-security/data-export', () => {
       element(by.id('submitButton')).click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'GDPR Data Theft' })
+    protractor.expect.challengeSolved({ challenge: 'GDPR Data Theft', category: 'Broken Authentication', wafshouldblock: "No" })
   })
 })

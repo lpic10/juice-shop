@@ -18,7 +18,7 @@ describe('/b2b/v2/order', () => {
         browser.waitForAngularEnabled(true)
       })
 
-      protractor.expect.challengeSolved({ challenge: 'Blocked RCE DoS' })
+      protractor.expect.challengeSolved({ challenge: 'Blocked RCE DoS', category: 'Insecure Deserialization', wafshouldblock: "Yes"})
     })
 
     describe('challenge "rceOccupy"', () => {
@@ -29,7 +29,7 @@ describe('/b2b/v2/order', () => {
         browser.waitForAngularEnabled(true)
       })
 
-      protractor.expect.challengeSolved({ challenge: 'Successful RCE DoS' })
+      protractor.expect.challengeSolved({ challenge: 'Successful RCE DoS', category: 'Insecure Deserialization', wafshouldblock: "Yes"})
     })
   }
 })

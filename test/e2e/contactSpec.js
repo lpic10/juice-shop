@@ -42,7 +42,7 @@ describe('/#/contact', () => {
       expect($$('mat-row mat-cell.mat-column-user').last().getText()).toMatch('2')
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Forged Feedback' })
+    protractor.expect.challengeSolved({ challenge: 'Forged Feedback', category: 'Broken Access Control', wafshouldblock: "No" })
   })
 
   if (!utils.disableOnContainerEnv()) {
@@ -79,7 +79,7 @@ describe('/#/contact', () => {
         browser.waitForAngularEnabled(true)
       })
 
-      protractor.expect.challengeSolved({ challenge: 'Server-side XSS Protection' })
+      protractor.expect.challengeSolved({ challenge: 'Server-side XSS Protection', category: 'XSS', wafshouldblock: "Yes"  })
     })
   }
 
@@ -92,7 +92,7 @@ describe('/#/contact', () => {
       submitButton.click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Vulnerable Library' })
+    protractor.expect.challengeSolved({ challenge: 'Vulnerable Library', category: 'Vulnerable Components', wafshouldblock: "No"  })
   })
 
   describe('challenge "weirdCrypto"', () => {
@@ -103,7 +103,7 @@ describe('/#/contact', () => {
       submitButton.click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Weird Crypto' })
+    protractor.expect.challengeSolved({ challenge: 'Weird Crypto', category: 'Cryptographic Issues', wafshouldblock: "No"  })
   })
 
   describe('challenge "typosquattingNpm"', () => {
@@ -114,7 +114,7 @@ describe('/#/contact', () => {
       submitButton.click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Legacy Typosquatting' })
+    protractor.expect.challengeSolved({ challenge: 'Legacy Typosquatting', category: 'Vulnerable Components', wafshouldblock: "No"  })
   })
 
   describe('challenge "typosquattingAngular"', () => {
@@ -125,7 +125,7 @@ describe('/#/contact', () => {
       submitButton.click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Frontend Typosquatting' })
+    protractor.expect.challengeSolved({ challenge: 'Frontend Typosquatting', category: 'Vulnerable Components', wafshouldblock: "No"  })
   })
 
   describe('challenge "hiddenImage"', () => {
@@ -136,7 +136,7 @@ describe('/#/contact', () => {
       submitButton.click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Steganography' })
+    protractor.expect.challengeSolved({ challenge: 'Steganography', category: 'Security through Obscurity', wafshouldblock: "No"  })
   })
 
   describe('challenge "zeroStars"', () => {
@@ -172,7 +172,7 @@ describe('/#/contact', () => {
       }, browser.baseUrl)
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Zero Stars' })
+    protractor.expect.challengeSolved({ challenge: 'Zero Stars', category: 'Improper Input Validation', wafshouldblock: "Yes"  })
   })
 
   describe('challenge "captchaBypass"', () => {
@@ -195,7 +195,7 @@ describe('/#/contact', () => {
       browser.ignoreSynchronization = false
     })
 
-    protractor.expect.challengeSolved({ challenge: 'CAPTCHA Bypass' })
+    protractor.expect.challengeSolved({ challenge: 'CAPTCHA Bypass', category: 'Broken Anti Automation', wafshouldblock: "No" })
   })
 
   describe('challenge "supplyChainAttack"', () => {
@@ -206,7 +206,7 @@ describe('/#/contact', () => {
       submitButton.click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Supply Chain Attack' })
+    protractor.expect.challengeSolved({ challenge: 'Supply Chain Attack', category: 'Vulnerable Components', wafshouldblock: "No"  })
   })
 
   describe('challenge "dlpPastebinDataLeak"', () => {
@@ -215,7 +215,7 @@ describe('/#/contact', () => {
       rating.click()
       submitButton.click()
     })
-    protractor.expect.challengeSolved({ challenge: 'Leaked Unsafe Product' })
+    protractor.expect.challengeSolved({ challenge: 'Leaked Unsafe Product', category: 'Sensitive Data Exposure', wafshouldblock: "No"  })
   })
 
   function solveNextCaptcha () {

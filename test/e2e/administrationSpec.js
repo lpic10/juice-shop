@@ -14,7 +14,7 @@ describe('/#/administration', () => {
       expect(browser.getCurrentUrl()).toMatch(/\/administration/)
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Admin Section' })
+    protractor.expect.challengeSolved({ challenge: 'Admin Section', category: 'Broken Access Control', wafshouldblock: "No" })
   })
 
   describe('challenge "fiveStarFeedback"', () => {
@@ -27,7 +27,7 @@ describe('/#/administration', () => {
       browser.wait(protractor.ExpectedConditions.stalenessOf(element(by.js(selectFiveStarRating))), 5000)
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Five-Star Feedback' })
+    protractor.expect.challengeSolved({ challenge: 'Five-Star Feedback', category: 'Broken Access Control', wafshouldblock: "No" })
   })
 })
 

@@ -31,7 +31,7 @@ describe('/#/search', () => {
       })
     })
 
-    protractor.expect.challengeSolved({ challenge: 'DOM XSS' })
+    protractor.expect.challengeSolved({ challenge: 'DOM XSS', category: 'XSS', wafshouldblock: "Yes" })
   })
 
   describe('challenge "xssBonusPayload"', () => {
@@ -42,7 +42,7 @@ describe('/#/search', () => {
       browser.actions().sendKeys(protractor.Key.ENTER).perform()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Bonus Payload' })
+    protractor.expect.challengeSolved({ challenge: 'Bonus Payload', category: 'XSS', wafshouldblock: "Yes" })
   })
 })
 
@@ -52,7 +52,7 @@ describe('/rest/products/search', () => {
       browser.driver.get(browser.baseUrl + "/rest/products/search?q=')) union select id,'2','3',email,password,'6','7','8','9' from users--")
     })
 
-    protractor.expect.challengeSolved({ challenge: 'User Credentials' })
+    protractor.expect.challengeSolved({ challenge: 'User Credentials', category: 'Injection', wafshouldblock: "Yes" })
   })
 
   describe('challenge "dbSchema"', () => {
@@ -60,7 +60,7 @@ describe('/rest/products/search', () => {
       browser.driver.get(browser.baseUrl + "/rest/products/search?q=')) union select sql,'2','3','4','5','6','7','8','9' from sqlite_master--")
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Database Schema' })
+    protractor.expect.challengeSolved({ challenge: 'Database Schema', category: 'Injection Issues', wafshouldblock: "Yes" })
   })
 
   describe('challenge "dlpPastebinLeakChallenge"', () => {
@@ -96,6 +96,6 @@ describe('/rest/products/search', () => {
       element(by.id('checkoutButton')).click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Christmas Special' })
+    protractor.expect.challengeSolved({ challenge: 'Christmas Special', category: 'Injection', wafshouldblock: "Yes" })
   })
 })

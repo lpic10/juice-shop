@@ -36,7 +36,7 @@ describe('/#/complain', () => {
       browser.driver.sleep(1000)
       browser.waitForAngularEnabled(true)
     })
-    protractor.expect.challengeSolved({ challenge: 'Upload Size' })
+    protractor.expect.challengeSolved({ challenge: 'Upload Size', category: 'Improper Input Validation', wafshouldblock: "Yes"  })
   })
 
   describe('challenge "uploadType"', () => {
@@ -54,7 +54,7 @@ describe('/#/complain', () => {
       browser.driver.sleep(1000)
       browser.waitForAngularEnabled(true)
     })
-    protractor.expect.challengeSolved({ challenge: 'Upload Type' })
+    protractor.expect.challengeSolved({ challenge: 'Upload Type', category: 'Improper Input Validation', wafshouldblock: "Yes" })
   })
 
   describe('challenge "deprecatedInterface"', () => {
@@ -63,7 +63,7 @@ describe('/#/complain', () => {
       file.sendKeys(path.resolve('test/files/deprecatedTypeForServer.xml'))
       submitButton.click()
     })
-    protractor.expect.challengeSolved({ challenge: 'Deprecated Interface' })
+    protractor.expect.challengeSolved({ challenge: 'Deprecated Interface', category: 'Security Misconfiguration', wafshouldblock: "Yes"  })
   })
 
   if (!utils.disableOnContainerEnv()) {
@@ -81,7 +81,7 @@ describe('/#/complain', () => {
       })
 
       afterAll(() => {
-        protractor.expect.challengeSolved({ challenge: 'XXE Data Access' })
+        protractor.expect.challengeSolved({ challenge: 'XXE Data Access', category: 'XXE', wafshouldblock: "Yes"  })
       })
     })
 
@@ -99,7 +99,7 @@ describe('/#/complain', () => {
       })
 
       afterAll(() => {
-        protractor.expect.challengeSolved({ challenge: 'XXE DoS' })
+        protractor.expect.challengeSolved({ challenge: 'XXE DoS', category: 'XXE', wafshouldblock: "Yes"  })
       })
     })
 
@@ -109,7 +109,7 @@ describe('/#/complain', () => {
         file.sendKeys(path.resolve('test/files/arbitraryFileWrite.zip'))
         submitButton.click()
       })
-      protractor.expect.challengeSolved({ challenge: 'Arbitrary File Write' })
+      protractor.expect.challengeSolved({ challenge: 'Arbitrary File Write', category: 'Vulnerable Components', wafshouldblock: "Yes"  })
     })
 
     describe('challenge "videoXssChallenge"', () => {
@@ -129,7 +129,7 @@ describe('/#/complain', () => {
         browser.driver.sleep(5000)
         browser.waitForAngularEnabled(true)
       })
-      protractor.expect.challengeSolved({ challenge: 'Video XSS' })
+      protractor.expect.challengeSolved({ challenge: 'Video XSS', category: 'XSS', wafshouldblock: "Yes"  })
     })
   }
 })

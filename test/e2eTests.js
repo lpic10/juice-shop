@@ -8,12 +8,17 @@ const colors = require('colors/safe')
 
 let server, confName, baseUrl
 
+function logToConsole (data) {
+  console.log(String(data))
+}
+
 if (process.argv && process.argv.length >= 3 && process.argv[2] === 'subfolder') {
   server = require('./e2eSubfolder.js')
   confName = 'protractor.subfolder.conf.js'
 } else if (process.argv && process.argv.length >= 3 && process.argv[2] === 'remote') {
   server = require('./e2eRemote.js')
   confName = 'protractor.remote.conf.js'
+  logToConsole = server.logToConsole
   baseUrl = process.argv[3]
 } else {
   server = require('../server.js')
@@ -25,10 +30,6 @@ server.start(() => {
     protractor = spawn('protractor', [confName, '--baseUrl', baseUrl, '--disableChecks'])
   } else {
     protractor = spawn('protractor', [confName])
-  }
-
-  function logToConsole (data) {
-    console.log(String(data))
   }
 
   protractor.stdout.on('data', logToConsole)

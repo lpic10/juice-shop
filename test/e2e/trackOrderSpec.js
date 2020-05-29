@@ -24,7 +24,7 @@ describe('/#/track-order', () => {
         browser.waitForAngularEnabled(true)
       })
 
-      protractor.expect.challengeSolved({ challenge: 'Reflected XSS' })
+      protractor.expect.challengeSolved({ challenge: 'Reflected XSS', category: 'XSS', wafshouldblock: "Yes" })
     })
   }
 })

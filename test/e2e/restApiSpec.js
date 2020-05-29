@@ -53,7 +53,7 @@ describe('/api', () => {
         browser.waitForAngularEnabled(true)
       })
 
-      protractor.expect.challengeSolved({ challenge: 'API-only XSS' })
+      protractor.expect.challengeSolved({ challenge: 'API-only XSS', category: 'XSS', wafshouldblock: "Yes" })
     })
   }
 
@@ -90,7 +90,7 @@ describe('/api', () => {
       browser.get(protractor.basePath + '/#/search')
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Product Tampering' })
+    protractor.expect.challengeSolved({ challenge: 'Product Tampering', category: 'Broken Access Control', wafshouldblock: "Yes" })
   })
 })
 
@@ -117,7 +117,7 @@ describe('/rest/saveLoginIp', () => {
         browser.waitForAngularEnabled(true)
       })
 
-      protractor.expect.challengeSolved({ challenge: 'HTTP-Header XSS' }) // TODO Add missing check for alert presence
+      protractor.expect.challengeSolved({ challenge: 'HTTP-Header XSS', category: 'XSS', wafshouldblock: "Yes" }) // TODO Add missing check for alert presence
     })
   }
 

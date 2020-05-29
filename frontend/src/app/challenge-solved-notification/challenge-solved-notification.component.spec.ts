@@ -68,18 +68,18 @@ describe('ChallengeSolvedNotificationComponent', () => {
 
   it('should delete notifictions', () => {
     component.notifications = [
-      { message: 'foo', flag: '1234', copied: false },
-      { message: 'bar', flag: '5678', copied: false }
+      { message: 'foo', flag: '1234', copied: false, category: 'test' },
+      { message: 'bar', flag: '5678', copied: false, category: 'test' }
     ]
     component.closeNotification(0)
 
-    expect(component.notifications).toEqual([{ message: 'bar', flag: '5678', copied: false }])
+    expect(component.notifications).toEqual([{ message: 'bar', flag: '5678', copied: false, category: 'test' }])
   })
 
   it('should delte all notifications if the shiftKey was pressed', () => {
     component.notifications = [
-      { message: 'foo', flag: '1234', copied: false },
-      { message: 'bar', flag: '5678', copied: false }
+      { message: 'foo', flag: '1234', copied: false, category: 'test' },
+      { message: 'bar', flag: '5678', copied: false, category: 'test' }
     ]
     component.closeNotification(0, true)
 

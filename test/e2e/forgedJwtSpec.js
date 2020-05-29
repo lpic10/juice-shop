@@ -11,7 +11,7 @@ describe('/', () => {
       browser.get(protractor.basePath + '/#/')
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Unsigned JWT' })
+    protractor.expect.challengeSolved({ challenge: 'Unsigned JWT', category: 'Vulnerable Components', wafshouldblock: "No" })
   })
 
   if (!utils.disableOnWindowsEnv()) {
@@ -21,7 +21,7 @@ describe('/', () => {
         browser.get(protractor.basePath + '/#/')
       })
 
-      protractor.expect.challengeSolved({ challenge: 'Forged Signed JWT' })
+      protractor.expect.challengeSolved({ challenge: 'Forged Signed JWT', category: 'Vulnerable Components', wafshouldblock: "No" })
     })
   }
 })

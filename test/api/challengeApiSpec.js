@@ -23,6 +23,7 @@ describe('/api/Challenges', () => {
         name: Joi.string(),
         description: Joi.string(),
         difficulty: Joi.number(),
+        category: Joi.string(),
         solved: Joi.boolean()
       })
   })
@@ -34,7 +35,8 @@ describe('/api/Challenges', () => {
         name: 'Invulnerability',
         description: 'I am not a vulnerability!',
         difficulty: 3,
-        solved: false
+        solved: false,
+        category: 'test'
       }
     })
       .expect('status', 401)
@@ -53,7 +55,8 @@ describe('/api/Challenges/:id', () => {
       body: {
         name: 'Vulnerability',
         description: 'I am a vulnerability!!!',
-        difficulty: 3
+        difficulty: 3,
+        category: 'test'
       }
     })
       .expect('status', 401)

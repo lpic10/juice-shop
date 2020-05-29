@@ -23,13 +23,17 @@ interface ChallengeSolvedMessage {
   isRestore?: any
   flag: any
   key?: any
+  category: string
+  difficulty: string
 }
 
 interface ChallengeSolvedNotification {
   message: string
+  category: string
   flag: string
   country?: { code: string; name: string }
   copied: boolean
+  difficulty: string
 }
 
 @Component({
@@ -43,13 +47,26 @@ export class ChallengeSolvedNotificationComponent implements OnInit {
   public showCtfFlagsInNotifications: boolean = false
   public showCtfCountryDetailsInNotifications: string = 'none'
   public countryMap?: any
+  public category: string = 'none'
 
-  constructor (private ngZone: NgZone, private configurationService: ConfigurationService, private challengeService: ChallengeService,private countryMappingService: CountryMappingService,private translate: TranslateService, private cookieService: CookieService, private ref: ChangeDetectorRef, private io: SocketIoService) {
-  }
+  constructor (
+    private ngZone: NgZone,
+    private configurationService: ConfigurationService,
+    private challengeService: ChallengeService,
+    private countryMappingService: CountryMappingService,
+    private translate: TranslateService,
+    private cookieService: CookieService,
+    private ref: ChangeDetectorRef,
+    private io: SocketIoService
+  ) {}
 
   ngOnInit () {
+
     this.ngZone.runOutsideAngular(() => {
       this.io.socket().on('challenge solved', (data: ChallengeSolvedMessage) => {
+        // this.challengeService.find({ key: data.key }).subscribe((solved) => {
+        //   data.category = solved[0].category
+        // })
         if (data && data.challenge) {
           if (!data.hidden) {
             this.showNotification(data)
@@ -101,9 +118,12 @@ export class ChallengeSolvedNotificationComponent implements OnInit {
         if (this.showCtfCountryDetailsInNotifications && this.showCtfCountryDetailsInNotifications !== 'none') {
           country = this.countryMap[challenge.key]
         }
+        console.debug(challenge.category + ';' + challenge.challenge + ';' + challenge.difficulty)
         this.notifications.push({
           message: message,
+          category: challenge.category,
           flag: challenge.flag,
+          difficulty: challenge.difficulty,
           country: country,
           copied: false
         })

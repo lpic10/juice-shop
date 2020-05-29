@@ -31,7 +31,7 @@ describe('/rest/products/reviews', () => {
         browser.driver.sleep(5000)
         browser.waitForAngularEnabled(true)
       })
-      protractor.expect.challengeSolved({ challenge: 'NoSQL DoS' })
+      protractor.expect.challengeSolved({ challenge: 'NoSQL DoS', category: 'Injection', wafshouldblock: "Yes" })
     })
 
     describe('challenge "NoSQL Exfiltration"', () => {
@@ -51,7 +51,7 @@ describe('/rest/products/reviews', () => {
         browser.driver.sleep(1000)
         browser.waitForAngularEnabled(true)
       })
-      protractor.expect.challengeSolved({ challenge: 'NoSQL Exfiltration' })
+      protractor.expect.challengeSolved({ challenge: 'NoSQL Exfiltration', category: 'Injection', wafshouldblock: "Yes" })
     })
   }
 
@@ -62,7 +62,7 @@ describe('/rest/products/reviews', () => {
       browser.driver.sleep(1000)
       browser.waitForAngularEnabled(true)
     })
-    protractor.expect.challengeSolved({ challenge: 'NoSQL Manipulation' })
+    protractor.expect.challengeSolved({ challenge: 'NoSQL Manipulation', category: 'Injection', wafshouldblock: "Yes" })
   })
 
   describe('challenge "Forged Review"', () => {
@@ -99,7 +99,7 @@ describe('/rest/products/reviews', () => {
       browser.driver.sleep(5000)
       browser.waitForAngularEnabled(true)
     })
-    protractor.expect.challengeSolved({ challenge: 'Forged Review' })
+    protractor.expect.challengeSolved({ challenge: 'Forged Review', category: 'Broken Access Control', wafshouldblock: "Yes" })
   })
 
   describe('challenge "Multiple Likes"', () => {
@@ -139,6 +139,6 @@ describe('/rest/products/reviews', () => {
       browser.waitForAngularEnabled(true)
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Multiple Likes' })
+    protractor.expect.challengeSolved({ challenge: 'Multiple Likes', category: 'Broken Anti Automation', wafshouldblock: "Yes" })
   })
 })

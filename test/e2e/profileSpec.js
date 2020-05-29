@@ -23,7 +23,7 @@ describe('/profile', () => {
       browser.driver.sleep(5000)
       browser.waitForAngularEnabled(true)
     })
-    protractor.expect.challengeSolved({ challenge: 'SSRF' })
+    protractor.expect.challengeSolved({ challenge: 'SSRF', category: 'Broken Access Control', wafshouldblock: "No" })
   })
 
   if (!utils.disableOnContainerEnv()) {
@@ -56,7 +56,7 @@ describe('/profile', () => {
         browser.get(protractor.basePath + '/#/')
         browser.waitForAngularEnabled(true)
       })
-      protractor.expect.challengeSolved({ challenge: 'CSP Bypass' })
+      protractor.expect.challengeSolved({ challenge: 'CSP Bypass', category: 'XSS', wafshouldblock: "Yes" })
     })
 
     describe('challenge "ssti"', () => {
@@ -74,7 +74,7 @@ describe('/profile', () => {
         browser.driver.sleep(10000)
         browser.waitForAngularEnabled(true)
       })
-      protractor.expect.challengeSolved({ challenge: 'SSTi' })
+      protractor.expect.challengeSolved({ challenge: 'SSTi', category: 'Injection', wafshouldblock: "Yes" })
     })
   }
 

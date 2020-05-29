@@ -17,3 +17,9 @@ exports.start = async function (readyCallback) {
 exports.close = function (exitCode) {
   return server.close(exitCode)
 }
+
+exports.logToConsole = function (data) {
+  if (String(data) !== '\n') {
+    console.log(String(data))
+  }
+}

@@ -10,6 +10,6 @@ describe('/#/privacy-security/privacy-policy', () => {
       expect(browser.getCurrentUrl()).toMatch(/\/privacy-policy/)
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Privacy Policy' })
+    protractor.expect.challengeSolved({ challenge: 'Privacy Policy', category: 'Miscellaneous', wafshouldblock: "No" })
   })
 })

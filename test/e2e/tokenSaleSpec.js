@@ -10,6 +10,6 @@ describe('/#/tokensale-ico-ea', () => {
       expect(browser.getCurrentUrl()).toMatch(/\/tokensale-ico-ea/)
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Blockchain Hype' })
+    protractor.expect.challengeSolved({ challenge: 'Blockchain Hype', category: 'Security through Obscurity', wafshouldblock: "No" })
   })
 })

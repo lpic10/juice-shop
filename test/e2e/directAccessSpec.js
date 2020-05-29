@@ -20,7 +20,7 @@ describe('/', () => {
       browser.driver.get(browser.baseUrl + '/the/devs/are/so/funny/they/hid/an/easter/egg/within/the/easter/egg')
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Nested Easter Egg' })
+    protractor.expect.challengeSolved({ challenge: 'Nested Easter Egg', category: 'Cryptographic Issues', wafshouldblock: "No" })
   })
 
   describe('challenge "premiumPaywall"', () => {
@@ -28,7 +28,7 @@ describe('/', () => {
       browser.driver.get(browser.baseUrl + '/this/page/is/hidden/behind/an/incredibly/high/paywall/that/could/only/be/unlocked/by/sending/1btc/to/us')
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Premium Paywall' })
+    protractor.expect.challengeSolved({ challenge: 'Premium Paywall', category: 'Cryptographic Issues', wafshouldblock: "No" })
   })
 
   describe('challenge "privacyPolicyProof"', () => {
@@ -36,7 +36,7 @@ describe('/', () => {
       browser.driver.get(browser.baseUrl + '/we/may/also/instruct/you/to/refuse/all/reasonably/necessary/responsibility')
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Privacy Policy Inspection' })
+    protractor.expect.challengeSolved({ challenge: 'Privacy Policy Inspection', category: 'Security through Obscurity', wafshouldblock: "No" })
   })
 
   describe('challenge "extraLanguage"', () => {
@@ -44,7 +44,7 @@ describe('/', () => {
       browser.driver.get(browser.baseUrl + '/assets/i18n/tlh_AA.json')
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Extra Language' })
+    protractor.expect.challengeSolved({ challenge: 'Extra Language', category: 'Broken Anti Automation', wafshouldblock: "No" })
   })
 
   describe('challenge "retrieveBlueprint"', () => {
@@ -52,7 +52,7 @@ describe('/', () => {
       browser.driver.get(browser.baseUrl + '/assets/public/images/products/' + blueprint)
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Retrieve Blueprint' })
+    protractor.expect.challengeSolved({ challenge: 'Retrieve Blueprint', category: 'Sensitive Data Exposure', wafshouldblock: "No" })
   })
 
   describe('challenge "missingEncoding"', () => {
@@ -60,7 +60,7 @@ describe('/', () => {
       browser.driver.get(browser.baseUrl + '/assets/public/images/uploads/%F0%9F%98%BC-%23zatschi-%23whoneedsfourlegs-1572600969477.jpg')
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Missing Encoding' })
+    protractor.expect.challengeSolved({ challenge: 'Missing Encoding', category: 'Improper Input Validation', wafshouldblock: "Yes" })
   })
 
   describe('challenge "securityPolicy"', () => {
@@ -68,7 +68,7 @@ describe('/', () => {
       browser.driver.get(browser.baseUrl + '/.well-known/security.txt')
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Security Policy' })
+    protractor.expect.challengeSolved({ challenge: 'Security Policy', category: 'Miscellaneous', wafshouldblock: "No" })
   })
 
   describe('challenge "emailLeak"', () => {
@@ -76,7 +76,7 @@ describe('/', () => {
       browser.driver.get(browser.baseUrl + '/rest/user/whoami?callback=func')
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Email Leak' })
+    protractor.expect.challengeSolved({ challenge: 'Email Leak', category: 'Sensitive Data Exposure', wafshouldblock: "No" })
   })
 
   describe('challenge "accessLogDisclosure"', () => {
@@ -84,6 +84,6 @@ describe('/', () => {
       browser.driver.get(browser.baseUrl + '/support/logs/access.log.' + utils.toISO8601(new Date()))
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Access Log' })
+    protractor.expect.challengeSolved({ challenge: 'Access Log', category: 'Sensitive Data Exposure', wafshouldblock: "No" })
   })
 })

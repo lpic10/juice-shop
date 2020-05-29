@@ -12,7 +12,7 @@ describe('/#/score-board', () => {
       expect(browser.getCurrentUrl()).toMatch(/\/score-board/)
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Score Board' })
+    protractor.expect.challengeSolved({ challenge: 'Score Board', category: 'Miscellaneous', wafshouldblock: "No" })
   })
 
   describe('challenge "continueCode"', () => {
@@ -21,7 +21,7 @@ describe('/#/score-board', () => {
       browser.get(protractor.basePath + '/#/score-board')
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Imaginary Challenge' })
+    protractor.expect.challengeSolved({ challenge: 'Imaginary Challenge', category: 'Cryptographic Issues', wafshouldblock: "Yes" })
   })
 
   describe('repeat notification', () => {

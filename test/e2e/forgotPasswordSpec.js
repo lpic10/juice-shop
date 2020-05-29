@@ -37,7 +37,7 @@ describe('/#/forgot-password', () => {
       expect($('.confirmation').getAttribute('hidden')).not.toBeTruthy()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Reset Jim\'s Password' })
+    protractor.expect.challengeSolved({ challenge: 'Reset Jim\'s Password', category: 'Broken Authentication', wafshouldblock: "No" })
   })
 
   describe('as Bender', () => {
@@ -52,7 +52,7 @@ describe('/#/forgot-password', () => {
       expect($('.confirmation').getAttribute('hidden')).not.toBeTruthy()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Reset Bender\'s Password' })
+    protractor.expect.challengeSolved({ challenge: 'Reset Bender\'s Password', category: 'Broken Authentication', wafshouldblock: "No" })
   })
 
   describe('as Bjoern', () => {
@@ -68,7 +68,7 @@ describe('/#/forgot-password', () => {
         expect($('.confirmation').getAttribute('hidden')).not.toBeTruthy()
       })
 
-      protractor.expect.challengeSolved({ challenge: 'Reset Bjoern\'s Password' })
+      protractor.expect.challengeSolved({ challenge: 'Reset Bjoern\'s Password', category: 'Broken Authentication', wafshouldblock: "No" })
     })
 
     describe('for his OWASP account', () => {
@@ -83,7 +83,7 @@ describe('/#/forgot-password', () => {
         expect($('.confirmation').getAttribute('hidden')).not.toBeTruthy()
       })
 
-      protractor.expect.challengeSolved({ challenge: 'Bjoern\'s Favorite Pet' })
+      protractor.expect.challengeSolved({ challenge: 'Bjoern\'s Favorite Pet', category: 'Broken Authentication', wafshouldblock: "No" })
     })
   })
 
@@ -99,7 +99,7 @@ describe('/#/forgot-password', () => {
       expect($('.confirmation').getAttribute('hidden')).not.toBeTruthy()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Reset Morty\'s Password' })
+    protractor.expect.challengeSolved({ challenge: 'Reset Morty\'s Password', category: 'Broken Authentication', wafshouldblock: "No" })
   })
 
   describe('as Uvogin', () => {
@@ -114,6 +114,6 @@ describe('/#/forgot-password', () => {
       expect($('.confirmation').getAttribute('hidden')).not.toBeTruthy()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Reset Uvogin\'s Password' })
+    protractor.expect.challengeSolved({ challenge: 'Reset Uvogin\'s Password', category: 'Broken Authentication', wafshouldblock: "No" })
   })
 })

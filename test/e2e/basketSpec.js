@@ -28,7 +28,7 @@ describe('/#/basket', () => {
         element(by.id('checkoutButton')).click()
       })
 
-      protractor.expect.challengeSolved({ challenge: 'Payback Time' })
+      protractor.expect.challengeSolved({ challenge: 'Payback Time', category: 'Improper Input Validation', wafshouldblock: "No" })
     })
 
     describe('challenge "basketAccessChallenge"', () => {
@@ -40,7 +40,7 @@ describe('/#/basket', () => {
         // TODO Verify functionally that it's not the basket of the admin
       })
 
-      protractor.expect.challengeSolved({ challenge: 'View Basket' })
+      protractor.expect.challengeSolved({ challenge: 'View Basket', category: 'Broken Access Control', wafshouldblock: "No" })
     })
 
     describe('challenge "basketManipulateChallenge"', () => {
@@ -63,7 +63,7 @@ describe('/#/basket', () => {
         browser.waitForAngularEnabled(true)
       })
 
-      protractor.expect.challengeSolved({ challenge: 'Manipulate Basket' })
+      protractor.expect.challengeSolved({ challenge: 'Manipulate Basket', category: 'Broken Access Control', wafshouldblock: "Yes" })
     })
   })
 
@@ -96,7 +96,7 @@ describe('/#/basket', () => {
         element(by.id('checkoutButton')).click()
       })
 
-      protractor.expect.challengeSolved({ challenge: 'Expired Coupon' })
+      protractor.expect.challengeSolved({ challenge: 'Expired Coupon', category: 'Improper Input Validation', wafshouldblock: "No" })
     })
 
     describe('challenge "forgedCoupon"', () => {
@@ -131,7 +131,7 @@ describe('/#/basket', () => {
         element(by.id('checkoutButton')).click()
       })
 
-      protractor.expect.challengeSolved({ challenge: 'Forged Coupon' })
+      protractor.expect.challengeSolved({ challenge: 'Forged Coupon', category: 'Cryptographic Issues', wafshouldblock: "No" })
     })
   })
 })

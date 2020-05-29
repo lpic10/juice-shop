@@ -58,7 +58,7 @@ describe('/#/register', () => {
         browser.waitForAngularEnabled(true)
       })
 
-      protractor.expect.challengeSolved({ challenge: 'Client-side XSS Protection' })
+      protractor.expect.challengeSolved({ challenge: 'Client-side XSS Protection', category: 'XSS', wafshouldblock: "Yes" })
     })
   }
 
@@ -78,7 +78,7 @@ describe('/#/register', () => {
       }, browser.baseUrl)
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Admin Registration' })
+    protractor.expect.challengeSolved({ challenge: 'Admin Registration', category: 'Improper Input Validation', wafshouldblock: "Yes" })
   })
 
   describe('challenge "passwordRepeat"', () => {
@@ -97,6 +97,6 @@ describe('/#/register', () => {
       }, browser.baseUrl)
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Repetitive Registration' })
+    protractor.expect.challengeSolved({ challenge: 'Repetitive Registration', category: 'Improper Input Validation', wafshouldblock: "Yes" })
   })
 })
