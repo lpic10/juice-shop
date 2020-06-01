@@ -58,7 +58,7 @@ exports.config.onPrepare = function () {
 
 exports.config.specs = [
     'test/e2e/_sharedSpecSolver.js',
-    //'test/e2e/forgotPasswordSpec.js'
+    //'test/e2e/forgedJwtSpec.js'
     'test/e2e/[a-z]*.js'
   ]
 
