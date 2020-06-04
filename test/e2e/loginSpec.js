@@ -125,8 +125,7 @@ describe('/#/login', () => {
 
       twoFactorSubmitButton.click()
     })
-
-    protractor.expect.challengeSolved({ challenge: 'Two Factor Authentication', category: 'Broken Authentication', wafshouldblock: "No" })
+    protractor.expect.challengeSolved({ challenge: 'Two Factor Authentication', category: 'Injection', wafshouldblock: "Yes" })
   })
 
   describe('challenge "oauthUserPassword"', () => {
@@ -165,8 +164,7 @@ describe('/#/login', () => {
       rememberMeCheckbox.click()
       loginButton.click()
     })
-
-    protractor.expect.challengeSolved({ challenge: 'Login CISO', category: 'Broken Authentication', wafshouldblock: "Yes" })
+    protractor.expect.challengeSolved({ challenge: 'Login CISO', category: 'Broken Authentication', wafshouldblock: "No" })
   })
 
   describe('challenge "ghostLogin"', () => {
@@ -182,7 +180,7 @@ describe('/#/login', () => {
       loginButton.click()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'GDPR Data Erasure', category: 'Broken Authentication', wafshouldblock: "Yes" })
+    protractor.expect.challengeSolved({ challenge: 'GDPR Data Erasure', category: 'Injection', wafshouldblock: "Yes" })
   })
 
   describe('challenge "ephemeralAccountant"', () => {

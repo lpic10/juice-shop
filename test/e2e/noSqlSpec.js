@@ -99,7 +99,7 @@ describe('/rest/products/reviews', () => {
       browser.driver.sleep(5000)
       browser.waitForAngularEnabled(true)
     })
-    protractor.expect.challengeSolved({ challenge: 'Forged Review', category: 'Broken Access Control', wafshouldblock: "Yes" })
+    protractor.expect.challengeSolved({ challenge: 'Forged Review', category: 'Broken Access Control', wafshouldblock: "No" })
   })
 
   describe('challenge "Multiple Likes"', () => {
@@ -138,7 +138,6 @@ describe('/rest/products/reviews', () => {
       browser.driver.sleep(5000)
       browser.waitForAngularEnabled(true)
     })
-
-    protractor.expect.challengeSolved({ challenge: 'Multiple Likes', category: 'Broken Anti Automation', wafshouldblock: "Yes" })
+    protractor.expect.challengeSolved({ challenge: 'Multiple Likes', category: 'Broken Anti Automation', wafshouldblock: "No" })
   })
 })

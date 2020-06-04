@@ -90,7 +90,7 @@ describe('/api', () => {
       browser.get(protractor.basePath + '/#/search')
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Product Tampering', category: 'Broken Access Control', wafshouldblock: "Yes" })
+    protractor.expect.challengeSolved({ challenge: 'Product Tampering', category: 'XSS', wafshouldblock: "Yes" })
   })
 })
 

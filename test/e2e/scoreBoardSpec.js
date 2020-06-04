@@ -20,8 +20,8 @@ describe('/#/score-board', () => {
       browser.executeScript('var xhttp = new XMLHttpRequest(); xhttp.onreadystatechange = function() { if (this.status == 200) { console.log("Success"); } }; xhttp.open("PUT","'+browser.baseUrl+'/rest/continue-code/apply/69OxrZ8aJEgxONZyWoz1Dw4BvXmRGkM6Ae9M7k2rK63YpqQLPjnlb5V5LvDj", true); xhttp.setRequestHeader("Content-type","text/plain"); xhttp.send();') // eslint-disable-line
       browser.get(protractor.basePath + '/#/score-board')
     })
-
-    protractor.expect.challengeSolved({ challenge: 'Imaginary Challenge', category: 'Cryptographic Issues', wafshouldblock: "Yes" })
+    // nothing to block on waf side
+    protractor.expect.challengeSolved({ challenge: 'Imaginary Challenge', category: 'Cryptographic Issues', wafshouldblock: "No" })
   })
 
   describe('repeat notification', () => {

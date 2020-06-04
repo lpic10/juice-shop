@@ -14,7 +14,7 @@ describe('/#/deluxe-membership', () => {
       browser.get(protractor.basePath + '/#/deluxe-membership?testDecal=' + encodeURIComponent('../../../..' + protractor.basePath + '/redirect?to=https://placekitten.com/g/200/100?x=https://github.com/bkimminich/juice-shop'))
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Cross-Site Imaging', category: 'Security Misconfiguration', wafshouldblock: "Yes" })
+    protractor.expect.challengeSolved({ challenge: 'Cross-Site Imaging', category: 'Path transversal', wafshouldblock: "Yes" })
   })
 
   describe('challenge "freeDeluxe"', () => {
@@ -28,8 +28,7 @@ describe('/#/deluxe-membership', () => {
         }, (err, response, body) => {
           expect(err).not.toBeTruthy()
           expect(JSON.parse(body).status).toEqual('success')
-
-          protractor.expect.challengeSolved({ challenge: 'Deluxe Fraud', category: 'Improper Input Validation', wafshouldblock: "Yes" })
+          protractor.expect.challengeSolved({ challenge: 'Deluxe Fraud', category: 'Improper Input Validation', wafshouldblock: "No" })
         })
       })
     })

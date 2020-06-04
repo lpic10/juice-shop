@@ -36,7 +36,7 @@ describe('/#/complain', () => {
       browser.driver.sleep(1000)
       browser.waitForAngularEnabled(true)
     })
-    protractor.expect.challengeSolved({ challenge: 'Upload Size', category: 'Improper Input Validation', wafshouldblock: "Yes"  })
+    protractor.expect.challengeSolved({ challenge: 'Upload Size', category: 'Improper Input Validation', wafshouldblock: "No" })
   })
 
   describe('challenge "uploadType"', () => {
@@ -54,7 +54,7 @@ describe('/#/complain', () => {
       browser.driver.sleep(1000)
       browser.waitForAngularEnabled(true)
     })
-    protractor.expect.challengeSolved({ challenge: 'Upload Type', category: 'Improper Input Validation', wafshouldblock: "Yes" })
+    protractor.expect.challengeSolved({ challenge: 'Upload Type', category: 'Improper Input Validation', wafshouldblock: "No" })
   })
 
   describe('challenge "deprecatedInterface"', () => {
@@ -63,7 +63,7 @@ describe('/#/complain', () => {
       file.sendKeys(path.resolve('test/files/deprecatedTypeForServer.xml'))
       submitButton.click()
     })
-    protractor.expect.challengeSolved({ challenge: 'Deprecated Interface', category: 'Security Misconfiguration', wafshouldblock: "Yes"  })
+    protractor.expect.challengeSolved({ challenge: 'Deprecated Interface', category: 'Security Misconfiguration', wafshouldblock: "No" })
   })
 
   if (!utils.disableOnContainerEnv()) {

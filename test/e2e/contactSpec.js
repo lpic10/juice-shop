@@ -171,8 +171,7 @@ describe('/#/contact', () => {
         }
       }, browser.baseUrl)
     })
-
-    protractor.expect.challengeSolved({ challenge: 'Zero Stars', category: 'Improper Input Validation', wafshouldblock: "Yes"  })
+    protractor.expect.challengeSolved({ challenge: 'Zero Stars', category: 'Improper Input Validation', wafshouldblock: "No"  })
   })
 
   describe('challenge "captchaBypass"', () => {

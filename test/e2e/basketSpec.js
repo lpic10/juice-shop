@@ -63,7 +63,7 @@ describe('/#/basket', () => {
         browser.waitForAngularEnabled(true)
       })
 
-      protractor.expect.challengeSolved({ challenge: 'Manipulate Basket', category: 'Broken Access Control', wafshouldblock: "Yes" })
+      protractor.expect.challengeSolved({ challenge: 'Manipulate Basket', category: 'Broken Access Control', wafshouldblock: "No" })
     })
   })
 

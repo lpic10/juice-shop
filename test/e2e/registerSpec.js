@@ -77,8 +77,7 @@ describe('/#/register', () => {
         xhttp.send(JSON.stringify({ email: 'testing@test.com', password: 'pwned', passwordRepeat: 'pwned', role: 'admin' }))
       }, browser.baseUrl)
     })
-
-    protractor.expect.challengeSolved({ challenge: 'Admin Registration', category: 'Improper Input Validation', wafshouldblock: "Yes" })
+    protractor.expect.challengeSolved({ challenge: 'Admin Registration', category: 'Improper Input Validation', wafshouldblock: "No" })
   })
 
   describe('challenge "passwordRepeat"', () => {
@@ -96,7 +95,6 @@ describe('/#/register', () => {
         xhttp.send(JSON.stringify({ email: 'uncle@bob.com', password: 'ThereCanBeOnlyOne' }))
       }, browser.baseUrl)
     })
-
-    protractor.expect.challengeSolved({ challenge: 'Repetitive Registration', category: 'Improper Input Validation', wafshouldblock: "Yes" })
+    protractor.expect.challengeSolved({ challenge: 'Repetitive Registration', category: 'Improper Input Validation', wafshouldblock: "No" })
   })
 })
