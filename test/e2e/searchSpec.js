@@ -31,7 +31,7 @@ describe('/#/search', () => {
       })
     })
 
-    protractor.expect.challengeSolved({ challenge: 'DOM XSS', category: 'XSS', wafshouldblock: "Yes" })
+    protractor.expect.challengeSolved({ challenge: 'DOM XSS', category: 'XSS', wafshouldblock: "No" })
   })
 
   describe('challenge "xssBonusPayload"', () => {
@@ -42,7 +42,7 @@ describe('/#/search', () => {
       browser.actions().sendKeys(protractor.Key.ENTER).perform()
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Bonus Payload', category: 'XSS', wafshouldblock: "Yes" })
+    protractor.expect.challengeSolved({ challenge: 'Bonus Payload', category: 'XSS', wafshouldblock: "No" })
   })
 })
 
